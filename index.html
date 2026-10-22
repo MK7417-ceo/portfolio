@@ -467,7 +467,14 @@
       .step p { margin: 9px 0 0; font-size: 0.93rem; color: var(--muted); line-height: 1.58; }
 
       /* About */
-      .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+      .about-grid { display: grid; grid-template-columns: minmax(220px, 260px) 1.5fr 1fr; gap: 48px; align-items: start; }
+      .about-photo { margin: 0; }
+      .about-photo img {
+        display: block; width: 100%; max-width: 260px; aspect-ratio: 4 / 5;
+        object-fit: cover; object-position: 50% 22%;
+        border-radius: var(--radius-lg); border: 1px solid var(--line);
+        box-shadow: var(--card-shadow); background: var(--surface-2);
+      }
       .about-copy p { margin: 0 0 20px; color: var(--ink-soft); font-size: 1.1rem; line-height: 1.74; }
       .about-copy p:first-child { margin-top: 24px; }
       .about-copy p:first-child::first-letter {
@@ -566,6 +573,7 @@
         .step { border-right: none; border-bottom: 1px solid var(--line); }
         .step:last-child { border-bottom: none; }
         .value-grid, .why-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+        .about-photo img { margin: 0 auto; }
         .service { grid-template-columns: 48px 1fr; }
         .service p { grid-column: 2; }
         .hero-ghost { display: none; }
@@ -959,6 +967,9 @@
           <p class="sec-label mono reveal"><span class="num">06</span> About Me</p>
           <h2 class="sec-title reveal" id="about-title">I turn ideas into usable digital products.</h2>
           <div class="about-grid reveal">
+            <figure class="about-photo">
+              <img src="https://github.com/MK7417-ceo/portfolio/raw/refs/heads/main/WhatsApp%20Image%202026-10-22%20at%2012.42.28%20PM.jpeg" alt="Mohit Baghel" loading="lazy" />
+            </figure>
             <div class="about-copy">
               <p>I am Mohit Baghel, a full-stack web developer based in India. I build responsive websites, backend APIs, dashboards and workflow tools for businesses that want a reliable online presence or a better way to manage day-to-day work.</p>
               <p>My current toolkit includes Next.js, TypeScript, Python, FastAPI, SQLAlchemy and deployment tools. I am especially interested in projects where a clear user experience and a practical backend need to work together.</p>
