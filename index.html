@@ -428,6 +428,20 @@
       .ai-note::before { content: "“"; color: var(--accent); font-size: 1.5em; line-height: 0; margin-right: 2px; }
       .ai-link { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 11px; align-items: center; }
 
+      /* Arsenal */
+      .arsenal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 52px; }
+      .arsenal-card {
+        background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+        box-shadow: var(--card-shadow); padding: 26px 28px;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      }
+      .arsenal-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); border-color: var(--line-strong); }
+      .arsenal-card h3 {
+        font-family: "JetBrains Mono", monospace; font-size: 0.76rem; letter-spacing: 0.16em;
+        text-transform: uppercase; color: var(--accent); margin: 0 0 16px; font-weight: 700;
+      }
+      .arsenal-card .tags { margin-top: 0; }
+
       /* Services */
       .service-list { margin-top: 52px; border-top: 2px solid var(--ink); }
       .service {
@@ -487,6 +501,23 @@
       .toolkit .gh-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; transition: color 0.2s ease; }
       .toolkit .gh-link:hover { color: var(--accent); }
       .toolkit p.small { margin: 14px 0 0; font-size: 0.92rem; color: var(--muted); }
+
+      /* Now */
+      .now-panel {
+        margin-top: 52px; background: var(--surface); border: 1px solid var(--line);
+        border-radius: var(--radius-lg); box-shadow: var(--card-shadow); padding: 12px 34px;
+      }
+      .now-row {
+        display: grid; grid-template-columns: 190px 1fr; gap: 18px; align-items: baseline;
+        padding: 17px 0; border-bottom: 1px solid var(--line);
+      }
+      .now-row:last-child { border-bottom: none; }
+      .now-key {
+        font-family: "JetBrains Mono", monospace; font-size: 0.78rem; letter-spacing: 0.14em;
+        font-weight: 700; color: var(--accent); white-space: nowrap;
+      }
+      .now-row p { margin: 0; color: var(--ink-soft); font-size: 1.02rem; }
+      .now-row p strong { color: var(--ink); font-weight: 700; }
 
       /* Contact */
       .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 56px; align-items: start; }
@@ -559,8 +590,8 @@
         html { scroll-behavior: auto; }
         .hero .eyebrow, .hero h1, .hero .lede, .hero .hero-ctas, .hero .availability, .hero .trustline, .success-box.show { animation: none; }
         .availability .pulse { animation: none; }
-        .btn, .btn .arr, nav.main a::after, .project, .project-media video, .brand-mark, .value-points div, .ai-list li, .service, .flow .fstep, .video-frame, .tag { transition: none; }
-        .project:hover, .btn-primary:hover, .btn-ghost:hover, .video-frame:hover { transform: none; }
+        .btn, .btn .arr, nav.main a::after, .project, .project-media video, .brand-mark, .value-points div, .ai-list li, .service, .flow .fstep, .video-frame, .tag, .arsenal-card { transition: none; }
+        .project:hover, .btn-primary:hover, .btn-ghost:hover, .video-frame:hover, .arsenal-card:hover { transform: none; }
         .scroll-progress { display: none; }
       }
 
@@ -573,6 +604,7 @@
         .step { border-right: none; border-bottom: 1px solid var(--line); }
         .step:last-child { border-bottom: none; }
         .value-grid, .why-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+        .arsenal-grid { grid-template-columns: repeat(2, 1fr); }
         .about-photo img { margin: 0 auto; }
         .service { grid-template-columns: 48px 1fr; }
         .service p { grid-column: 2; }
@@ -591,6 +623,9 @@
         .project-body { padding: 30px 24px 32px; }
         .cta-band { padding: 38px 28px; }
         .value-points { grid-template-columns: 1fr; }
+        .arsenal-grid { grid-template-columns: 1fr; }
+        .now-panel { padding: 8px 22px; }
+        .now-row { grid-template-columns: 1fr; gap: 3px; }
         .wrap { padding: 0 20px; }
         body { font-size: 16px; }
       }
@@ -853,7 +888,7 @@
       <!-- ================= AI Skills ================= -->
       <section class="section" id="ai-skills" aria-labelledby="ai-skills-title">
         <div class="wrap">
-          <p class="sec-label mono reveal">AI Skills</p>
+          <p class="sec-label mono reveal"><span class="num">03</span> AI Skills</p>
           <h2 class="sec-title reveal" id="ai-skills-title">Practical AI features for real products.</h2>
           <p class="sec-intro reveal">I build applied AI features on proven stacks — document chatbots and retrieval-powered tools for businesses, not research demos.</p>
           <ul class="ai-list reveal">
@@ -871,10 +906,57 @@
         </div>
       </section>
 
+      <!-- ================= Arsenal ================= -->
+      <section class="section" id="arsenal" aria-labelledby="arsenal-title">
+        <div class="wrap">
+          <p class="sec-label mono reveal"><span class="num">04</span> Arsenal</p>
+          <h2 class="sec-title reveal" id="arsenal-title">What I reach for when something needs to exist.</h2>
+          <p class="sec-intro reveal">The stack behind the projects above — grouped by the job each tool does.</p>
+          <div class="arsenal-grid reveal">
+            <div class="arsenal-card">
+              <h3>Languages</h3>
+              <div class="tags">
+                <span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span>
+              </div>
+            </div>
+            <div class="arsenal-card">
+              <h3>Frontend</h3>
+              <div class="tags">
+                <span class="tag">Next.js</span><span class="tag">React</span>
+              </div>
+            </div>
+            <div class="arsenal-card">
+              <h3>Backend</h3>
+              <div class="tags">
+                <span class="tag">FastAPI</span><span class="tag">REST APIs</span>
+              </div>
+            </div>
+            <div class="arsenal-card">
+              <h3>AI</h3>
+              <div class="tags">
+                <span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">GenAI workflows</span>
+              </div>
+            </div>
+            <div class="arsenal-card">
+              <h3>Data</h3>
+              <div class="tags">
+                <span class="tag">SQLAlchemy</span><span class="tag">SQLite</span>
+              </div>
+            </div>
+            <div class="arsenal-card">
+              <h3>Tools</h3>
+              <div class="tags">
+                <span class="tag">Docker</span><span class="tag">Git</span><span class="tag">GitHub</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ================= Services ================= -->
       <section class="section alt" id="services" aria-labelledby="services-title">
         <div class="wrap">
-          <p class="sec-label mono reveal"><span class="num">03</span> Services</p>
+          <p class="sec-label mono reveal"><span class="num">05</span> Services</p>
           <h2 class="sec-title reveal" id="services-title">What I can help you build.</h2>
           <div class="service-list reveal">
             <div class="service">
@@ -911,7 +993,7 @@
         <div class="wrap">
           <div class="why-grid reveal">
             <div>
-              <p class="sec-label mono"><span class="num">04</span> Why work with me</p>
+              <p class="sec-label mono"><span class="num">06</span> Why work with me</p>
               <h2 class="sec-title" id="why-title">Clear communication. Honest scope. <span class="serif-i">Working software.</span></h2>
             </div>
             <ul class="why-list">
@@ -929,7 +1011,7 @@
       <!-- ================= Process ================= -->
       <section class="section alt" id="process" aria-labelledby="process-title">
         <div class="wrap">
-          <p class="sec-label mono reveal"><span class="num">05</span> How I Work</p>
+          <p class="sec-label mono reveal"><span class="num">07</span> How I Work</p>
           <h2 class="sec-title reveal" id="process-title">A simple process from idea to launch.</h2>
           <div class="steps reveal">
             <div class="step">
@@ -964,7 +1046,7 @@
       <!-- ================= About ================= -->
       <section class="section" id="about" aria-labelledby="about-title">
         <div class="wrap">
-          <p class="sec-label mono reveal"><span class="num">06</span> About Me</p>
+          <p class="sec-label mono reveal"><span class="num">08</span> About Me</p>
           <h2 class="sec-title reveal" id="about-title">I turn ideas into usable digital products.</h2>
           <div class="about-grid reveal">
             <figure class="about-photo">
@@ -987,10 +1069,40 @@
         </div>
       </section>
 
+      <!-- ================= Now ================= -->
+      <section class="section" id="now" aria-labelledby="now-title">
+        <div class="wrap">
+          <p class="sec-label mono reveal"><span class="num">09</span> Now</p>
+          <h2 class="sec-title reveal" id="now-title">What has my attention.</h2>
+          <div class="now-panel reveal">
+            <div class="now-row">
+              <span class="now-key">// Studying</span>
+              <p>MCA, Galgotias University</p>
+            </div>
+            <div class="now-row">
+              <span class="now-key">// Building</span>
+              <p>Portfolio, EduRise Academy, DocuMind AI, Scout (agentic research agent)</p>
+            </div>
+            <div class="now-row">
+              <span class="now-key">// Freelance</span>
+              <p>Open to small, clearly scoped freelance projects</p>
+            </div>
+            <div class="now-row">
+              <span class="now-key">// Learning</span>
+              <p>GenAI, RAG and agentic AI workflows</p>
+            </div>
+            <div class="now-row">
+              <span class="now-key">// Status</span>
+              <p>Open for freelance projects and good conversations</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ================= Contact ================= -->
       <section class="section alt" id="contact" aria-labelledby="contact-title">
         <div class="wrap">
-          <p class="sec-label mono reveal"><span class="num">07</span> Start a Project</p>
+          <p class="sec-label mono reveal"><span class="num">10</span> Start a Project</p>
           <h2 class="sec-title reveal" id="contact-title">Have a website or workflow you want to improve?</h2>
           <div class="contact-grid reveal">
             <div class="contact-side">
@@ -1000,13 +1112,10 @@
                   <span class="c-name">GitHub</span>
                   <a href="https://github.com/MK7417-ceo" target="_blank" rel="noopener">github.com/MK7417-ceo</a>
                 </div>
-                <!-- LinkedIn channel — hidden until the real profile URL is provided.
-                     To restore: un-comment this block and replace the placeholder with the link.
                 <div class="channel">
                   <span class="c-name">LinkedIn</span>
-                  <span class="tbd">Profile link to be updated</span>
+                  <a href="https://www.linkedin.com/in/mohit-baghel-Freelancer" target="_blank" rel="noopener">linkedin.com/in/mohit-baghel-Freelancer</a>
                 </div>
-                -->
                 <div class="channel">
                   <span class="c-name">Email</span>
                   <a href="mailto:workwithmohit26@gmail.com">workwithmohit26@gmail.com</a>
@@ -1108,7 +1217,7 @@
               <h5>Connect</h5>
               <ul>
                 <li><a href="https://github.com/MK7417-ceo" target="_blank" rel="noopener">GitHub</a></li>
-                <!-- LinkedIn slot — hidden until the real profile URL is provided: <li><span class="tbd">LinkedIn — to be updated</span></li> -->
+                <li><a href="https://www.linkedin.com/in/mohit-baghel-Freelancer" target="_blank" rel="noopener">LinkedIn</a></li>
                 <li><a href="mailto:workwithmohit26@gmail.com">Email</a></li>
               </ul>
             </div>
